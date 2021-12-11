@@ -19,11 +19,6 @@ div {
   font-size: 25px;
   text-align: center;
 }
-#error {
-    margin-left: 20px;
-    font-weight: bold;
-    color: red;
-}
 #desc {
     font-weight: bold;
   font-size: 16px;
@@ -60,7 +55,6 @@ input {
     <p>
         <a th:href="@{/index}"><input type="button" value="Go back to landing page"></a>
     </p>
-    <p id="error">Error : <span th:text="${error}">error</span></p>
 </div>
 </body>
 </html>

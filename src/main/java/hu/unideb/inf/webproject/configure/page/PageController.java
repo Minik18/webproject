@@ -1,8 +1,6 @@
 package hu.unideb.inf.webproject.configure.page;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -25,8 +23,7 @@ public class PageController {
         return "terms";
     }
     @GetMapping("/error")
-    public String error(HttpStatus status, Model model) {
-        model.addAttribute("error",status.name());
+    public String error() {
         return "error";
     }
 }
