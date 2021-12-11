@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="style/register.css">
+    <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+<form th:action="@{/register}" method="post" th:object="${user}">
+    <h1 class="text">
+        Registration
+    </h1>
+    <input class="input" type="text" placeHolder="username" th:field="*{username}">
+    <br/>
+    <input class="input" type="email" placeHolder="email" th:field="*{email}">
+    <br/>
+    <input class="input" type="password" placeHolder="password" th:field="*{password}">
+    <br/>
+    <input class="input" type="password" placeHolder="password again" th:field="*{confirmPassword}">
+    <br/>
+    <div class="check">
+        <b>I accept <a th:href="@{registration/terms}">Terms and Conditions</a> by pressing submit button</b>
+    </div>
+    <div>
+        <a th:href="@{/index}"><input id="back" class="last_row" type="button" value="Back to home"></a>
+        <input id="submit" class="last_row" type="submit" value="Submit">
+    </div>
+    <div class="error" th:if="${#fields.hasAnyErrors()}">
+        <ul>
+            <li th:each="err : ${#fields.allErrors()}" th:text="${err}"></li>
+        </ul>
+        <ul th:selected="${user.password} eq ${user.confirmPassword}">
+            <li>
+                Passwords should match!
+            </li>
+        </ul>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>User webpage</title>
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+<div>
+    <p id="greetings"> Welcome
+    </p>
+
+    <p id="desc">This is the landing page of my java spring webapp project.
+        You can choose which page you want to go. Options are down below. </p>
+    <br />
+    <p>
+        <a th:href="@{admin}"><input type="button" value="Admin"></a>
+        <a th:href="@{user}"><input type="button" value="User"></a>
+        <a th:href="@{register}"><input type="button" value="Register"></a>
+    </p>
+</div>
+</body>
+</html>

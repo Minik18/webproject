@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Personal page</title>
+    <link rel="stylesheet" href="style/user.css">
+</head>
+<body>
+<form th:action="@{/user}" method="post" th:object="${user}">
+    <p class="greetings">Welcome <span th:text="${realUsername}">default</span> !</p>
+    <p class="desc">This page shows your personal information. You can easily modify them.</p>
+    <table>
+        <tr class="first_row">
+            <td></td>
+            <td>
+                Username
+            </td>
+            <td>
+                Email
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <span th:text="${realUser.username}">text</span>
+            </td>
+            <td>
+                <span th:text="${realUser.email}">text</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Modify:</td>
+            <td>
+                <input th:field="*{username}" type="text" placeholder="new username">
+            </td>
+            <td>
+                <input th:field="*{email}" type="text" placeHolder="new email">
+            </td>
+        </tr>
+        <tr>
+            <td>Submit:</td>
+            <td>
+                <input class="button" type="submit" value="Submit new username" name="newUsername">
+            </td>
+            <td>
+                <input class="button" type="submit" value="Submit new email" name="newEmail">
+            </td>
+        </tr>
+    </table>
+    <br />
+    <div class="pass">
+        Change password
+        <br />
+        <input th:field="*{password}" type="password" placeHolder="new password">
+        <input class="button" style="margin-top: 10px" type="submit" value="Submit new password" name="newPassword">
+        <br />
+        <input id="remove" class="button" style="margin-top: 50px" type="submit" value="Remove account" name="removeAccount">
+        <input class="button" type="submit" value="Logout" name="logout">
+        <input class="button" type="submit" value="Back to home" name="back">
+    </div>
+</form>
+</body>
+</html>
